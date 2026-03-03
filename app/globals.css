@@ -3,87 +3,146 @@
 :root {
   --background: #ffffff;
   --foreground: #1a1a1a;
+  
+  /* Brutalism Design System Colors */
+  --color-primary: #EC4899;
+  --color-secondary: #F472B6;
+  --color-cta: #06B6D4;
+  --color-background: #FDF2F8;
+  --color-text: #831843;
+  
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+  --shadow-xl: 0 20px 25px rgba(0,0,0,0.15);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  letter-spacing: 0.01em;
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: -0.01em;
 }
 
-/* 手写笔触效果 */
-.brush-stroke {
-  position: relative;
+/* Brutalist Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Archivo', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.02em;
 }
 
-.brush-stroke::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, #1a1a1a 20%, #1a1a1a 80%, transparent);
-  opacity: 0.6;
+/* Remove smooth transitions for brutalism - instant state changes */
+* {
+  transition: none !important;
 }
 
-/* 文艺引用样式 */
-blockquote {
-  position: relative;
-  padding-left: 2rem;
+/* But allow specific transitions for hover states */
+.transition-transform {
+  transition: transform 0.2s ease !important;
 }
 
-blockquote::before {
-  content: '"';
-  position: absolute;
-  left: 0;
-  top: -0.5rem;
-  font-size: 4rem;
-  color: #e5e5e5;
-  font-family: Georgia, serif;
-  line-height: 1;
+.transition-colors {
+  transition: background-color 0.2s ease, color 0.2s ease !important;
 }
 
-/* 极简按钮悬停效果 */
-.btn-minimal {
-  position: relative;
-  overflow: hidden;
+/* Sharp corners - no border radius by default */
+button, input, textarea, select {
+  border-radius: 0;
 }
 
-.btn-minimal::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.1);
-  transition: left 0.3s ease;
+/* High contrast focus states for accessibility */
+*:focus-visible {
+  outline: 4px solid #EC4899;
+  outline-offset: 2px;
 }
 
-.btn-minimal:hover::before {
-  left: 0;
+/* Cursor pointer for all interactive elements */
+a, button, [role="button"], .cursor-pointer {
+  cursor: pointer;
 }
 
-/* 文章列表样式 */
-.article-card {
-  transition: all 0.3s ease;
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
-.article-card:hover {
-  transform: translateY(-2px);
+/* Brutalist grid lines */
+.grid-lines {
+  background-image: 
+    linear-gradient(to right, #e5e5e5 1px, transparent 1px),
+    linear-gradient(to bottom, #e5e5e5 1px, transparent 1px);
+  background-size: 20px 20px;
 }
 
-/* 黑白渐变分隔线 */
-.divider-gradient {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #1a1a1a 50%, transparent);
+/* Bold text selection */
+::selection {
+  background: #EC4899;
+  color: white;
+}
+
+/* Visible borders everywhere */
+.border-visible {
+  border: 2px solid #000;
+}
+
+/* Large block elements */
+.block-large {
+  min-height: 200px;
+  padding: 3rem;
+}
+
+/* Asymmetric layouts helper */
+.asymmetric-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 0;
+}
+
+@media (max-width: 768px) {
+  .asymmetric-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Raw, unpolished aesthetic */
+.raw-text {
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0;
+  line-height: 1.4;
+}
+
+/* Stark contrast blocks */
+.contrast-block {
+  background: #000;
+  color: #fff;
+  padding: 2rem;
+  border: 4px solid #000;
+}
+
+/* Anti-design elements */
+.anti-design {
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 0.05em;
 }

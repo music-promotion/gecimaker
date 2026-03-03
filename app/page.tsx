@@ -3,140 +3,191 @@ import Link from 'next/link'
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white">
-      {/* Header - 黑白极简设计 */}
-      <header className="border-b border-gray-200">
-        <div className="container mx-auto px-4 py-6">
-          <h1 className="text-3xl font-bold text-gray-900 tracking-tight">
+    <div className="min-h-screen bg-white font-['Space_Grotesk']">
+      {/* Brutalist Header - Raw & Stark */}
+      <header className="border-b-4 border-black">
+        <div className="container mx-auto px-6 py-8">
+          <h1 className="text-4xl font-black text-black uppercase tracking-tight font-['Archivo']">
             {siteConfig.name}
           </h1>
-          <p className="text-sm text-gray-500 mt-2 font-light tracking-wide">
+          <p className="text-base text-gray-700 mt-3 font-normal">
             {siteConfig.description}
           </p>
         </div>
       </header>
 
-      {/* Hero Section - 文艺笔触风格 */}
-      <main className="container mx-auto px-4 py-16">
-        <div className="max-w-5xl mx-auto">
-          {/* 主标题区域 - 手写笔触感 */}
-          <div className="text-center mb-20 relative">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
-            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 mt-8 leading-tight">
-              用文字<br />
-              <span className="relative inline-block">
-                谱写旋律
-                <svg className="absolute -bottom-2 left-0 w-full" height="8" viewBox="0 0 200 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M2 6C50 2 150 2 198 6" stroke="#1a1a1a" strokeWidth="2" strokeLinecap="round"/>
-                </svg>
-              </span>
-            </h2>
-            <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed font-light">
-              从灵感闪现到完整作品，探索歌词创作的艺术与技巧
-            </p>
+      <main className="container mx-auto px-6">
+        {/* Hero - Asymmetric Brutalist Layout */}
+        <section className="py-20 grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <div className="lg:col-span-7 space-y-8">
+            <div className="border-4 border-black p-8 bg-[#FDF2F8]">
+              <h2 className="text-6xl md:text-7xl font-black text-[#831843] leading-none mb-6 font-['Archivo']">
+                用文字<br />
+                谱写<br />
+                旋律
+              </h2>
+              <div className="w-24 h-2 bg-[#EC4899]"></div>
+            </div>
             
-            {/* CTA - 极简按钮 */}
+            <p className="text-xl text-gray-800 leading-relaxed border-l-4 border-[#EC4899] pl-6">
+              从灵感闪现到完整作品，探索歌词创作的艺术与技巧。
+              每一句歌词都承载着情感，每一个韵脚都是心跳的节奏。
+            </p>
+          </div>
+
+          <div className="lg:col-span-5 space-y-6">
+            {/* CTA Above Fold - Brutalist Button */}
             <a 
               href={siteConfig.targetProduct.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-gray-900 text-white px-10 py-4 text-sm tracking-widest uppercase hover:bg-gray-800 transition-all duration-300 border-2 border-gray-900 hover:shadow-lg"
+              className="block bg-[#06B6D4] text-white px-8 py-6 text-lg font-bold uppercase tracking-wider border-4 border-black hover:bg-[#0891B2] cursor-pointer text-center"
             >
-              开始创作
+              开始创作 →
             </a>
-          </div>
 
-          {/* Categories - 网格布局 */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-gray-200 mb-20 border border-gray-200">
+            <div className="border-4 border-black p-6 bg-white">
+              <div className="text-sm font-mono text-gray-500 mb-2">// FEATURES</div>
+              <ul className="space-y-3 text-base">
+                <li className="flex items-start gap-3">
+                  <span className="text-[#EC4899] font-black text-xl">01</span>
+                  <span className="text-gray-800">零基础入门教程</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-[#EC4899] font-black text-xl">02</span>
+                  <span className="text-gray-800">AI 辅助创作技巧</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-[#EC4899] font-black text-xl">03</span>
+                  <span className="text-gray-800">风格化写作指南</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Categories - Visible Grid Layout */}
+        <section className="py-16 border-t-4 border-black">
+          <div className="flex items-center gap-4 mb-8">
+            <div className="w-3 h-3 bg-[#EC4899]"></div>
+            <h3 className="text-3xl font-black uppercase font-['Archivo']">探索分类</h3>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-4 border-black">
             {siteConfig.theme.categories.map((category, index) => (
               <Link
                 key={category}
                 href="/articles"
-                className="bg-white p-8 hover:bg-gray-50 transition-colors group relative overflow-hidden"
+                className="border-b-4 md:border-r-4 last:border-b-0 md:last:border-r-0 lg:[&:nth-child(3n)]:border-r-0 border-black p-8 bg-white hover:bg-[#FDF2F8] cursor-pointer group"
               >
-                <div className="absolute top-2 right-2 text-xs text-gray-300 font-mono">
-                  0{index + 1}
+                <div className="flex items-start justify-between mb-4">
+                  <span className="text-5xl font-black text-[#EC4899] font-mono">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <svg className="w-6 h-6 text-black group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={3} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-gray-600 transition-colors">
+                <h4 className="text-xl font-bold text-black uppercase tracking-tight">
                   {category}
-                </h3>
-                <div className="w-8 h-px bg-gray-900 group-hover:w-16 transition-all duration-300"></div>
+                </h4>
               </Link>
             ))}
           </div>
+        </section>
 
-          {/* 文章入口 - 简约设计 */}
-          <div className="text-center mb-20">
-            <Link
-              href="/articles"
-              className="inline-block px-10 py-4 text-sm tracking-widest uppercase border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white transition-all duration-300"
-            >
-              浏览所有文章
-            </Link>
-          </div>
-
-          {/* Product Promotion - 黑白对比 */}
-          <div className="bg-gray-900 p-12 mb-20 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-gray-800 rounded-full -translate-y-32 translate-x-32 opacity-50"></div>
+        {/* Articles CTA - Large Block */}
+        <section className="py-16">
+          <div className="border-4 border-black bg-black text-white p-12 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#EC4899] opacity-20 -translate-y-20 translate-x-20"></div>
             <div className="relative z-10">
-              <h3 className="text-3xl font-bold mb-4 text-white">
-                让 AI 为你的歌词配上旋律
+              <h3 className="text-4xl font-black mb-6 uppercase font-['Archivo']">
+                浏览所有文章
               </h3>
-              <p className="mb-6 text-gray-300 leading-relaxed max-w-2xl font-light">
+              <p className="text-lg mb-8 max-w-2xl text-gray-300">
+                深入了解歌词创作的各个方面，从基础技巧到高级策略，
+                我们为你准备了完整的学习路径。
+              </p>
+              <Link
+                href="/articles"
+                className="inline-block bg-[#06B6D4] text-white px-10 py-5 text-base font-bold uppercase tracking-wider border-4 border-white hover:bg-[#0891B2] cursor-pointer"
+              >
+                查看全部 →
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Product Promotion - Stark Contrast */}
+        <section className="py-16 border-t-4 border-black">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="border-4 border-black p-10 bg-[#FDF2F8]">
+              <div className="text-sm font-mono text-gray-500 mb-4">// AI POWERED</div>
+              <h3 className="text-4xl font-black mb-6 text-[#831843] font-['Archivo']">
+                让 AI 为你的<br />歌词配上旋律
+              </h3>
+              <p className="text-base text-gray-800 mb-8 leading-relaxed">
                 {siteConfig.targetProduct.description}
               </p>
               <a 
                 href={siteConfig.targetProduct.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-white text-gray-900 px-8 py-3 text-sm tracking-widest uppercase hover:bg-gray-100 transition-colors"
+                className="inline-block bg-[#06B6D4] text-white px-8 py-4 text-sm font-bold uppercase tracking-wider border-4 border-black hover:bg-[#0891B2] cursor-pointer"
               >
                 立即体验 →
               </a>
             </div>
-          </div>
 
-          {/* 创作理念 - 文艺段落 */}
-          <div className="max-w-3xl mx-auto mb-20 text-center">
-            <blockquote className="text-xl text-gray-700 leading-relaxed font-light italic border-l-2 border-gray-900 pl-6 text-left">
-              "每一首歌都始于一个念头，每一句歌词都承载着情感。
-              在这里，我们不仅教你如何写歌词，更引导你发现内心的声音。"
-            </blockquote>
-          </div>
-
-          {/* Related Sites - 极简列表 */}
-          <div className="border-t border-gray-200 pt-12">
-            <h3 className="text-sm tracking-widest uppercase text-gray-500 mb-6">
-              相关推荐
-            </h3>
-            <div className="space-y-4">
-              {siteConfig.relatedSites.map((site) => (
-                <a
-                  key={site.url}
-                  href={site.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block group"
-                >
-                  <div className="flex items-center justify-between py-4 border-b border-gray-100 hover:border-gray-900 transition-colors">
-                    <span className="text-base text-gray-900 group-hover:text-gray-600 transition-colors">
-                      {site.name}
-                    </span>
-                    <span className="text-gray-400 group-hover:translate-x-2 transition-transform">
-                      →
-                    </span>
-                  </div>
-                </a>
-              ))}
+            <div className="border-4 border-black p-10 bg-white">
+              <blockquote className="text-2xl font-bold text-black leading-tight mb-6 font-['Archivo']">
+                "每一首歌都始于一个念头，每一句歌词都承载着情感。"
+              </blockquote>
+              <div className="w-16 h-1 bg-[#EC4899] mb-6"></div>
+              <p className="text-base text-gray-700 leading-relaxed">
+                在这里，我们不仅教你如何写歌词，更引导你发现内心的声音。
+                从灵感捕捉到韵律编排，从情感表达到意境营造。
+              </p>
             </div>
           </div>
-        </div>
+        </section>
+
+        {/* Related Sites - Plain List */}
+        <section className="py-16 border-t-4 border-black">
+          <div className="flex items-center gap-4 mb-8">
+            <div className="w-3 h-3 bg-[#06B6D4]"></div>
+            <h3 className="text-2xl font-black uppercase font-['Archivo']">相关推荐</h3>
+          </div>
+          <div className="space-y-0 border-4 border-black">
+            {siteConfig.relatedSites.map((site, index) => (
+              <a
+                key={site.url}
+                href={site.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between p-6 border-b-4 last:border-b-0 border-black bg-white hover:bg-[#FDF2F8] cursor-pointer group"
+              >
+                <div className="flex items-center gap-4">
+                  <span className="text-2xl font-black text-[#EC4899] font-mono">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <span className="text-lg font-bold text-black">
+                    {site.name}
+                  </span>
+                </div>
+                <svg className="w-6 h-6 text-black group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={3} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </a>
+            ))}
+          </div>
+        </section>
       </main>
 
-      {/* Footer - 极简页脚 */}
-      <footer className="border-t border-gray-200 mt-20 py-12 bg-gray-50">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-xs tracking-widest uppercase text-gray-400">
+      {/* Footer - Minimal */}
+      <footer className="border-t-4 border-black mt-20 py-12 bg-black">
+        <div className="container mx-auto px-6 text-center">
+          <p className="text-sm font-mono uppercase text-white tracking-widest">
             {siteConfig.name} © 2025
           </p>
         </div>
