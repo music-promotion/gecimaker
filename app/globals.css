@@ -1,50 +1,14 @@
 @import "tailwindcss";
+@import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #1a1a1a;
-  
-  /* Brutalism Design System Colors */
-  --color-primary: #EC4899;
-  --color-secondary: #F472B6;
-  --color-cta: #06B6D4;
-  --color-background: #FDF2F8;
-  --color-text: #831843;
-  
-  /* Spacing */
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
-  --space-md: 1rem;
-  --space-lg: 1.5rem;
-  --space-xl: 2rem;
-  --space-2xl: 3rem;
-  --space-3xl: 4rem;
-  
-  /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
-  --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
-  --shadow-xl: 0 20px 25px rgba(0,0,0,0.15);
-}
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  letter-spacing: -0.01em;
-}
 
 /* Brutalist Typography */
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Archivo', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-weight: 900;
-  letter-spacing: -0.02em;
-}
 
 /* Remove smooth transitions for brutalism - instant state changes */
 * {

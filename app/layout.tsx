@@ -1,6 +1,21 @@
 import type { Metadata } from "next";
+import { Space_Grotesk, Archivo } from "next/font/google";
 import { siteConfig } from "@/site.config";
 import "./globals.css";
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-space-grotesk",
+  display: "swap",
+});
+
+const archivo = Archivo({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-archivo",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: siteConfig.name,
@@ -14,13 +29,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-CN">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-      </head>
-      <body className="antialiased">
+    <html lang="zh-CN" className={`${spaceGrotesk.variable} ${archivo.variable}`}>
+      <body className="antialiased font-sans">
         {children}
       </body>
     </html>
